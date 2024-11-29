@@ -1,8 +1,6 @@
 import React from 'react'
 
-type Props = {}
-
-const Error404: React.FC = (props: Props) => {
+const Error404: React.FC = () => {
   return (
     <div>Error404</div>
   )
