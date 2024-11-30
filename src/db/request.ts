@@ -1,29 +1,41 @@
+import Querie from '../interfaces/Queries';
 import { supabase } from './../supabase';
 
-// Crear una tarea
-export const createTask = async (title: string) => {
-  const { data, error } = await supabase.from('tasks').insert([{ title, is_done: false }]);
+export const createConsulta = async (consulta: Querie) => {
+  const { data, error } = await supabase
+    .from('Queries')
+    .insert([consulta]); // Inserta la consulta
+
   if (error) throw error;
   return data;
 };
 
-// Leer todas las tareas
-export const getTasks = async () => {
-  const { data, error } = await supabase.from('specialty').select('*');
+// Leer todas los Doctores
+export const getDoctorsWithSpecialty = async () => {
+  const { data, error } = await supabase
+    .from('Doctor')
+    .select(`
+      *,
+      specialty (name)
+    `)
+    .eq('status', 'Activo'); // Filtrar doctores activos
+
   if (error) throw error;
   return data;
 };
 
-// Actualizar una tarea
-export const updateTask = async (id: number, updates: { title?: string; is_done?: boolean }) => {
-  const { data, error } = await supabase.from('tasks').update(updates).eq('id', id);
+// Leer todas los servicios
+export const getServices = async () => {
+  const { data, error } = await supabase.from('Services').select('*').eq('status', 'Activo');
   if (error) throw error;
   return data;
 };
 
-// Eliminar una tarea
-export const deleteTask = async (id: number) => {
-  const { data, error } = await supabase.from('tasks').delete().eq('id', id);
+
+// Leer todas los testimonios
+export const getTestimonials = async () => {
+  const { data, error } = await supabase.from('Testimonials').select('*');
   if (error) throw error;
   return data;
 };
+

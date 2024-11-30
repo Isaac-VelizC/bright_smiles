@@ -1,40 +1,37 @@
 import "./styles/App.css";
 import "./styles/icomoon.css";
 import AppRoutes from "./routes";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import Preloader from "./components/preloader";
-import { getTasks } from "./db/request";
+import { DataProvider } from "./context/ContextApi"; // Asegúrate de importar el DataProvider
 
 function App() {
+  const [showPreloader, setShowPreloader] = useState(true);
   const [loading, setLoading] = useState(true);
-  const [showPreloader, setShowPreloader] = useState(true); // Controla visibilidad del preloader
-  const [tasks, setTasks] = useState<any[]>([]);
 
-  // Simular preloader y cargar tareas al inicio
+  // Simula una carga de 4 segundos como mínimo
   useEffect(() => {
-    const initializeApp = async () => {
-      const [tasksData] = await Promise.all([
-        getTasks(),
-        new Promise((resolve) => setTimeout(resolve, 5000)),
-      ]);
+    const timeout = setTimeout(() => {
+      setLoading(false); // Detener el preloader después de 4 segundos
+    }, 4000); // 4000 ms (4 segundos)
 
-      setTasks(tasksData);
-      setLoading(false); // Detener preloader
-    };
-
-    initializeApp();
+    return () => clearTimeout(timeout); // Limpiar el timeout cuando el componente se desmonte
   }, []);
 
-  // Ocultar preloader después de la animación
+  // Ocultar el preloader después de la animación
   const handlePreloaderComplete = () => setShowPreloader(false);
 
   return (
-    <>
-      {showPreloader && loading && (
-        <Preloader onAnimationComplete={handlePreloaderComplete} />
-      )}
-      {!loading && <AppRoutes />}
-    </>
+    <DataProvider>
+      <>
+        {showPreloader && loading && (
+          <Preloader onAnimationComplete={handlePreloaderComplete} />
+        )}
+        {!loading && (
+          <AppRoutes />
+        )}
+      </>
+    </DataProvider>
   );
 }
 
