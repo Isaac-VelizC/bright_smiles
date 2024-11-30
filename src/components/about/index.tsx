@@ -12,7 +12,7 @@ const AboutSection: React.FC = () => {
           <div
             className="w-full h-56 md:h-80 lg:h-screen lg:w-5/12 md:p-5 img img-2 mt-5 md:mt-0"
             style={{
-              backgroundImage: "url(./../../../../public/images/about.jpg)",
+              backgroundImage: "url(/images/about.jpg)",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}

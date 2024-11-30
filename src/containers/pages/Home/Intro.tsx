@@ -22,7 +22,7 @@ const IntroSection: React.FC = () => {
   const sectionStyle = {
     backgroundImage: "url(/images/bg_3.jpg)",
     backgroundSize: "cover",
-    paddingTop: "7rem",
+    paddingTop: "6rem",
     paddingBottom: "7rem",
     backgroundAttachment,
     backgroundPosition: "top",
@@ -33,7 +33,7 @@ const IntroSection: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-wrap">
           <div className="w-full md:w-1/2">
-            <h3 className="text-3xl leading-normal tracking-wider mb-4">
+            <h3 className="text-2xl md:text-3xl leading-normal tracking-wide mb-4">
               We promised to take care of our patients and we delivered.
             </h3>
             <p className="text-gray-600 text-custom-16 tracking-normal leading-snug md:leading-normal">

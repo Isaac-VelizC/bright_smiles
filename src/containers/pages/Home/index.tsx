@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import AboutSection from "../../../components/about";
 import CardService from "../../../components/services/CardService";
 import IntroSection from "./Intro";
@@ -10,10 +10,10 @@ import CardPricing from "../../../components/card/CardPricing";
 import InputForm from "../../../components/form/InputForm";
 import SectionConsultation from "../../../components/sections/SectionConsultation";
 import SectionTestimonial from "../../../components/sections/SectionTestimonial";
-import services from "../../../data/services";
-import doctors from "../../../data/doctors";
 import blogs from "../../../data/blogs";
 import { Link } from "react-router-dom";
+import { useData } from "../../../context/ContextApi";
+import { createConsulta } from "../../../db/request";
 
 const pricings = [
   {
@@ -34,9 +34,54 @@ const pricings = [
   },
 ];
 
-//type Props = {};
+const DataConsultas = {
+  firstName: "",
+  lastName: "",
+  servicio: 0,
+  date: "",
+  time: "",
+};
 
 const HomePage: React.FC = () => {
+  const { doctors, services, loading } = useData();
+
+  const [formData, setFormData] = useState(DataConsultas);
+
+  if (loading) {
+    return <div>Loading</div>;
+  }
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      // Enviar los datos al backend
+      console.log(formData);
+      await createConsulta({
+        firstname: formData.firstName,
+        lastname: formData.lastName,
+        department: formData.servicio, // Cambia según la estructura en tu backend
+        date: formData.date,
+        time: formData.time,
+      });
+      alert("Consulta creada exitosamente");
+      setFormData(DataConsultas); // Reiniciar formulario
+    } catch (error) {
+      console.error("Error al crear la consulta:", error);
+      alert("Hubo un error al crear la consulta");
+    }
+  };
+
   return (
     <>
       <IntroCarousel />
@@ -66,39 +111,63 @@ const HomePage: React.FC = () => {
               <h3 className="mb-6 text-xl font-semibold text-porcelain text-center">
                 Free Consultation
               </h3>
-              <form action="#">
+              <form onSubmit={handleSubmit}>
                 <div className="flex flex-wrap">
                   {/* Espaciado negativo para manejar el padding */}
-                  <InputForm name="First Name" type="text" />
-                  <InputForm name="Last Name" type="text" />
+                  <InputForm
+                    name="firstName"
+                    type="text"
+                    value={formData.firstName}
+                    onChange={handleChange}
+                    placeholder="First Name"
+                    aria-label="First Name"
+                  />
+                  <InputForm
+                    name="lastName"
+                    type="text"
+                    value={formData.lastName}
+                    onChange={handleChange}
+                    placeholder="Last Name"
+                    aria-label="Last Name"
+                  />
                   <div className="w-full md:w-1/2 lg:w-1/3 mb-4">
+                    <label htmlFor="servicio" className="sr-only">
+                      Select a service
+                    </label>
                     <select
-                      name=""
-                      id=""
+                      name="servicio"
+                      id="servicio"
                       className="border-b-2 w-[90%] h-10 px-0 bg-primary text-porcelain font-medium text-[13px] focus:outline-none"
+                      value={formData.servicio}
+                      onChange={handleChange}
+                      required
                     >
-                      <option value="" className="">
-                        Department
+                      <option value="" disabled>
+                        Select a service
                       </option>
-                      <option value="" className="">
-                        Neurology
-                      </option>
-                      <option value="" className="">
-                        Cardiology
-                      </option>
-                      <option value="" className="">
-                        Dental
-                      </option>
-                      <option value="" className="">
-                        Ophthalmology
-                      </option>
-                      <option value="" className="">
-                        Other Services
-                      </option>
+                      {services.map((item) => (
+                        <option key={item.id} value={item.id}>
+                          {item.title}
+                        </option>
+                      ))}
+                      <option value="0">Other Services</option>
                     </select>
                   </div>
-                  <InputForm name="Date" type="text" />
-                  <InputForm name="Time" type="text" />
+                  <InputForm
+                    name="date"
+                    type="date" // Cambiado a tipo "date" para mejor manejo
+                    value={formData.date}
+                    onChange={handleChange}
+                    aria-label="Date"
+                  />
+                  <InputForm
+                    name="time"
+                    type="time" // Cambiado a tipo "time" para mejor manejo
+                    value={formData.time}
+                    onChange={handleChange}
+                    aria-label="Time"
+                  />
+
                   <div className="w-full md:w-1/2 lg:w-1/3 mb-4">
                     <button
                       type="submit"
@@ -144,9 +213,7 @@ const HomePage: React.FC = () => {
             {services.map((service, index) => (
               <CardService
                 key={index}
-                title={service.title}
-                content={service.content}
-                icon={service.icon}
+                data={service}
                 delay={0.2 * index} // Calcula el delay basado en el índice
               />
             ))}
@@ -170,10 +237,7 @@ const HomePage: React.FC = () => {
             {doctors.slice(0, 4).map((doctor, index) => (
               <CardDoctor
                 key={index}
-                name={doctor.name}
-                content={doctor.content}
-                specialty={doctor.specialty}
-                img={doctor.img}
+                data={doctor}
                 delay={0.2 * index} // Calcula el delay basado en el índice
               />
             ))}
@@ -237,3 +301,42 @@ const HomePage: React.FC = () => {
 };
 
 export default HomePage;
+
+{
+  /*<form onSubmit={handleSubmit}>
+      <div className="flex flex-wrap">
+        <InputForm name="First Name" type="text" value={formData.firstName} onChange={handleChange} />
+        <InputForm name="Last Name" type="text" value={formData.lastName} onChange={handleChange} />
+        <div className="w-full md:w-1/2 lg:w-1/3 mb-4">
+          <select
+            name="servicio"
+            id="servicio"
+            className="border-b-2 w-[90%] h-10 px-0 bg-primary text-porcelain font-medium text-[13px] focus:outline-none"
+            value={formData.servicio}
+            onChange={handleChange}
+          >
+            <option value="" disabled>
+              Select a service
+            </option>
+            {services.map((item) => (
+              <option key={item.id} value={item.id}>
+                {item.title}
+              </option>
+            ))}
+            <option value="0">Other Services</option>
+          </select>
+        </div>
+        <InputForm name="Date" type="text" value={formData.date} onChange={handleChange} />
+        <InputForm name="Time" type="text" value={formData.time} onChange={handleChange} />
+        <div className="w-full md:w-1/2 lg:w-1/3 mb-4">
+          <button
+            type="submit"
+            className="w-full py-2 bg-secondary text-porcelain text-lg rounded-full hover:bg-goldenrod hover:text-gray-900 transition duration-300"
+          >
+            Appointment
+          </button>
+        </div>
+      </div>
+    </form>
+*/
+}

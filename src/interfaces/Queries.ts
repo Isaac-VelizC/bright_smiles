@@ -1,6 +1,6 @@
 interface Querie {
-    firstName: string,
-    lastName: string,
+    firstname: string,
+    lastname: string,
     department: number,
     date: string,
     time: string, 

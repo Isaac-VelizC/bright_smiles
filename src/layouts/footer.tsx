@@ -70,7 +70,7 @@ const Footer: React.FC<Props> = () => {
             </h2>
             <CardFooterBlog
               title="Even the all-powerful Pointing has no control about"
-              img="./../../../../public/images/image_1.jpg"
+              img="/images/image_1.jpg"
               date="Sept. 20, 2019"
               enlace="#"
               comments={23}
@@ -78,7 +78,7 @@ const Footer: React.FC<Props> = () => {
             />
             <CardFooterBlog
               title="Even the all-powerful Pointing has no control about"
-              img="./../../../../public/images/image_2.jpg"
+              img="/images/image_2.jpg"
               date="Sept. 20, 2019"
               enlace="#"
               comments={19}
@@ -111,7 +111,7 @@ const Footer: React.FC<Props> = () => {
               rel="noopener noreferrer"
               className="underline hover:text-white"
             >
-              Colorlib
+              AIsakVeliz
             </a>
           </p>
         </div>

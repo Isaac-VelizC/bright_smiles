@@ -19,9 +19,14 @@ const ContactPage: React.FC = () => {
             <div className="w-full md:w-1/2 p-4 md:p-5 md:order-2 bg-gray-100">
               {" "}
               {/* Fondo claro y padding */}
-              <form action="#" className="md:m-6">
+              <form
+                action="mailto:aisakvelizdc@gmail.com"
+                method="post"
+                encType="text/plain"
+                className="md:m-6"
+              >
                 <Input name="Your Name" placeholder="Your Name" type="text" />
-                <Input type="text" placeholder="Your Email" />
+                <Input type="email" placeholder="Your Email" />
                 <Input type="text" placeholder="Subject" />
                 <TextArea placeholder="Message" cols={30} rows={7} />
                 <div>

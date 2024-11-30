@@ -1,32 +1,34 @@
-import React from 'react'
-import Breadcrumbs from '../../../components/Breadcrumbs'
-import CardDoctor from '../../../components/doctors/CardDoctor'
-import doctors from '../../../data/doctors'
-
-//type Props = {}
+import React from 'react';
+import Breadcrumbs from '../../../components/Breadcrumbs';
+import CardDoctor from '../../../components/doctors/CardDoctor';
+import { useData } from '../../../context/ContextApi';
+import Doctor from '../../../interfaces/Doctor';
 
 const DoctorPage: React.FC = () => {
+  const { doctors, loading } = useData();
+
+  if (loading || !Array.isArray(doctors)) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <>
-    <Breadcrumbs title='Our Dentist' subtitle='Doctors'/>
-    <section className="ftco-section flex items-center justify-center flex-col h-auto mx-6 md:mx-0">
+      <Breadcrumbs title="Our Dentist" subtitle="Doctors" />
+      <section className="ftco-section flex items-center justify-center flex-col h-auto mx-6 md:mx-0">
         <div className="container">
           <div className="flex flex-wrap justify-center">
-          {doctors.map((doctor, index) => (
+            {doctors.map((doctor: Doctor, index) => (
               <CardDoctor
-                key={index}
-                name={doctor.name}
-                content={doctor.content}
-                specialty={doctor.specialty}
-                img={doctor.img}
-                delay={0.2 * index} // Calcula el delay basado en el índice
+                key={doctor.id}
+                data={doctor}
+                delay={0.2 * index}
               />
             ))}
           </div>
         </div>
       </section>
     </>
-  )
-}
+  );
+};
 
-export default DoctorPage
+export default DoctorPage;

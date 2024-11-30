@@ -1,10 +1,13 @@
 import React from "react";
 import Slider from "react-slick";
 import CardTestimonial from "../card/CardTestimonial";
+import { useData } from "../../context/ContextApi";
+import Testimonial from "../../interfaces/Testimonial";
 
 //type Props = {}
 
 const TestimonialCarousel: React.FC = () => {
+  const { testimonials, loading } = useData();
   const settings = {
     dots: true,
     infinite: true,
@@ -33,40 +36,14 @@ const TestimonialCarousel: React.FC = () => {
       },
     ],
   };
+  if (loading || !testimonials) {
+    return <div> loading</div>;
+  }
   return (
     <Slider {...settings} className="m-0 relative">
-      <CardTestimonial
-        name="Racky Henderson"
-        img="public/images/person_1.jpg"
-        content="Far far away, behind the word mountains, far from the
-                        countries Vokalia and Consonantia, there live the blind
-                        texts."
-        rol="Farmer"
-      />
-      <CardTestimonial
-        name="Henry Dee"
-        img="public/images/person_2.jpg"
-        content="Far far away, behind the word mountains, far from the
-                        countries Vokalia and Consonantia, there live the blind
-                        texts."
-        rol="Businessman"
-      />
-      <CardTestimonial
-        name="Mark Ruff"
-        img="public/images/person_3.jpg"
-        content="Far far away, behind the word mountains, far from the
-                        countries Vokalia and Consonantia, there live the blind
-                        texts."
-        rol="Students"
-      />
-      <CardTestimonial
-        name="Rodel Golez"
-        img="public/images/person_4.jpg"
-        content="Far far away, behind the word mountains, far from the
-                        countries Vokalia and Consonantia, there live the blind
-                        texts."
-        rol="Striper"
-      />
+      {testimonials.map((item: Testimonial) => (
+        <CardTestimonial key={item.id} data={item} />
+      ))}
     </Slider>
   );
 };

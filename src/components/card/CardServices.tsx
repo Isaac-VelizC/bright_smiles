@@ -1,14 +1,13 @@
 import { motion } from "framer-motion";
 import React from "react";
+import Services from "../../interfaces/Services";
 
 type Props = {
-  img: string;
-  title: string;
-  content: string;
-  delay: number;
+  data: Services;
+  delay?: number;
 };
 
-const CardServices: React.FC<Props> = ({ img, title, content, delay }) => {
+const CardServices: React.FC<Props> = ({ data, delay }) => {
   return (
     <motion.div
       whileInView={{ opacity: 1, y: 0 }}
@@ -25,16 +24,20 @@ const CardServices: React.FC<Props> = ({ img, title, content, delay }) => {
         <div
           className="bg-cover bg-no-repeat h-60 w-full" // Estilo para la imagen
           style={{
-            backgroundImage: `url(${img})`,
+            backgroundImage: `url(${
+              typeof data.img === "string" ? data.img : "/images/default-image.jpg"
+            })`,
             backgroundPosition: "center",
           }}
         ></div>
         <div className="p-6 flex-grow">
           {" "}
           {/* Padding y permite que el contenido crezca */}
-          <h3 className="text-xl font-semibold mb-4">{title}</h3>
+          <h3 className="text-xl font-semibold mb-4">
+            {data.title || "Unknown"}
+          </h3>
           <p className="text-gray-500 text-custom-16 leading-relaxed">
-            {content}
+            {data.content || "No content available."}
           </p>
         </div>
       </div>
