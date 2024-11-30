@@ -29,7 +29,7 @@ const SectionConsultation: React.FC = () => {
             {/* Botón */}
             <div className="w-full md:w-1/4 lg:w-3/12 flex md:justify-start mt-6 md:mt-0">
               <a
-                href="#"
+                href="#consultFree"
                 className="bg-primary px-6 py-4 text-white text-sm rounded-full shadow-lg hover:bg-secondary transition duration-300"
               >
                 Free Consultation

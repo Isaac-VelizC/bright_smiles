@@ -87,7 +87,7 @@ const HomePage: React.FC = () => {
       <IntroCarousel />
       <AboutSection />
 
-      <section className="relation flex items-center justify-between">
+      <section id="consultFree" className="relation flex items-center justify-between">
         <div className="w-full mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4">
             {/* Tarjeta 1: Dental Services */}

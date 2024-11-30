@@ -9,6 +9,7 @@ html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  scroll-behavior: smooth;
 }
 
 article,
@@ -62,4 +63,37 @@ img {
   background-size: cover; /* Cubrir el área del contenedor */
   background-repeat: no-repeat; /* Sin repetición de fondo */
   background-position: center center; /* Centrar la imagen de fondo */
+}
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  z-index: -1;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #007bff;
+  opacity: 10px;
+  border-radius: 10px;
+}
+/* Handle */
+::-webkit-scrollbar-thumb:hover {
+  opacity: 10px;
+  border-radius: 10px;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, and Opera */
 }

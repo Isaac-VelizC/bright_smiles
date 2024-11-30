@@ -68,7 +68,7 @@ const IntroCarousel: React.FC = () => {
         </>
       ),
       text: "Everyday we bring hope and smiles to the patients we serve.",
-      link: "#",
+      link: "/treatments",
     },
     {
       backgroundImage: "/images/bg_2.jpg",
@@ -78,7 +78,7 @@ const IntroCarousel: React.FC = () => {
         </>
       ),
       text: "Your health is our top priority with comprehensive and affordable medical care.",
-      link: "#",
+      link: "/treatments",
     },
   ];
 

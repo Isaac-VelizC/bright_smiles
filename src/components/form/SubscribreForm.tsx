@@ -12,7 +12,7 @@ const SubscribeForm: React.FC = () => {
         <input
           type="submit"
           value="Subscribe"
-          className="block w-full h-14 text-custom-16 border-none bg-primary rounded-none cursor-pointer hover:bg-primary/65 transition duration-300 ease-in-out"
+          className="block w-full h-14 text-custom-16 border-none bg-secondary rounded-none cursor-pointer hover:bg-secondary/65 transition duration-300 ease-in-out"
         />
       </div>
     </form>

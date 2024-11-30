@@ -8,12 +8,12 @@ type Props = {};
 
 const Footer: React.FC<Props> = () => {
   return (
-    <footer className="text-sm md:px-20 bg-secondary text-white">
+    <footer className="text-sm md:px-20 bg-primary text-gray-200">
       <div className="max-w-screen-xl mx-auto px-6 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ">
           {/* Column 1 */}
           <div>
-            <h2 className="mb-6 text-lg md:text-xl font-semibold">Dentista</h2>
+            <h2 className="mb-6 text-lg md:text-xl font-semibold">Dentista Bright Smiles</h2>
             <p className="text-sm md:text-base text-white/80 leading-relaxed">
               Far far away, behind the word mountains, far from the countries
               Vokalia and Consonantia, there live the blind texts.
@@ -46,10 +46,10 @@ const Footer: React.FC<Props> = () => {
           <div>
             <h2 className="mb-6 text-lg md:text-xl font-semibold">Links</h2>
             <ul className="space-y-3">
-              <LinkFooter name="Home" />
-              <LinkFooter name="About" />
-              <LinkFooter name="Services" />
-              <LinkFooter name="Contact" />
+              <LinkFooter name="Home" enlace="/" />
+              <LinkFooter name="About" enlace="/about"/>
+              <LinkFooter name="Services" enlace="/treatments" />
+              <LinkFooter name="Contact" enlace="/contact"/>
             </ul>
             <h2 className="mt-10 mb-6 text-lg md:text-xl font-semibold">
               Services
