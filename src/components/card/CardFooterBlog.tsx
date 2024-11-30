@@ -7,6 +7,7 @@ type Props = {
   title: string;
   comments: number;
   user: string;
+  colorText?: string;
 };
 
 const CardFooterBlog: React.FC<Props> = ({
@@ -16,6 +17,7 @@ const CardFooterBlog: React.FC<Props> = ({
   title,
   comments,
   user,
+  colorText,
 }) => {
   if (!img) {
     throw new Error("La propiedad 'img' es obligatoria y no puede estar vacía.");
@@ -34,10 +36,11 @@ const CardFooterBlog: React.FC<Props> = ({
         }}
       ></a>
       <div className="flex-grow mt-3 md:mt-0">
-        <h3 className="text-base md:text-sm text-white font-semibold hover:text-white/50 transition-colors duration-500 ease-in-out">
+        <h3 className={`text-base md:text-sm font-semibold ${colorText}
+         transition-colors duration-500 ease-in-out`}>
           <a href={enlace}>{title}</a>
         </h3>
-        <div className="flex flex-wrap mt-2 text-xs md:text-sm text-white/70 gap-2">
+        <div className="flex flex-wrap mt-2 text-xs md:text-sm text-gray-400 gap-2">
           <span className="flex items-center space-x-1">
             <span className="icon-calendar"></span>
             <span>{date}</span>

@@ -3,9 +3,9 @@ import React from 'react'
 const SectionConsultation: React.FC = () => {
   return (
     <section
-        className="w-full h-full bg-cover bg-no-repeat relative py-20"
+        className="w-full h-full bg-cover bg-no-repeat relative py-24"
         style={{
-          backgroundImage: "url(public/images/bg_3.jpg)",
+          backgroundImage: "url(/imgs/bg-6.jpg)",
           backgroundPosition: "top center",
         }}
       >

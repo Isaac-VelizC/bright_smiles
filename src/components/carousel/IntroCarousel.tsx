@@ -32,7 +32,7 @@ const Slide: React.FC<SlideProps> = ({ backgroundImage, title, text, link }) => 
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h1 className="text-4xl md:text-5xl tracking-wider">{title}</h1>
+          <h1 className="text-4xl md:text-5xl tracking-wider text-primary">{title}</h1>
           <p className="text-lg mb-2">{text}</p>
           <a
             href={link}
@@ -61,7 +61,7 @@ const IntroCarousel: React.FC = () => {
 
   const slides = [
     {
-      backgroundImage: "/images/bg_1.jpg",
+      backgroundImage: "/imgs/bg-2.webp",
       title: (
         <>
           Helping You <span className="block pt-3">Stay Happy One</span>
@@ -71,7 +71,7 @@ const IntroCarousel: React.FC = () => {
       link: "/treatments",
     },
     {
-      backgroundImage: "/images/bg_2.jpg",
+      backgroundImage: "/imgs/bg-4.jpg",
       title: (
         <>
           Smile Makes <br /> A Lasting Impression

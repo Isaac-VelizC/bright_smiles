@@ -9,6 +9,7 @@ export default {
         morningGlory: "#a3d5e0", // Azul suave
         porcelain: "#f6f8f8", // Gris muy claro
         goldenrod: "#f9d36c", // Amarillo dorado
+        textPrimary: "#212529",
         white: "#ffffff", // Blanco puro
         dark: "#000000", // Negro puro
 

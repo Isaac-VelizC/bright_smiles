@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 type PropsBlog = {
   title: string;
@@ -42,12 +43,12 @@ const CardBlog: React.FC<PropsBlog> = ({
         {/* Contenido */}
         <div className="relative border-t-0 rounded-sm p-6">
           <h3 className="text-xl tracking-wider font-semibold mb-4">
-            <a
-              href="#"
+            <Link
+              to="/blog/show"
               className="hover:text-secondary transition ease-in-out duration-300"
             >
               {title}
-            </a>
+            </Link>
           </h3>
           <p className="text-gray-600 text-custom-16 leading-normal tracking-wider mb-4">
             {content}

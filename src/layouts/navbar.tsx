@@ -29,9 +29,9 @@ const Navbar: React.FC = () => {
             <div className="text-center w-full justify-center relative md:w-1/5 md:order-2">
               <Link
                 to="/"
-                className="block text-3xl md:text-4xl font-bold leading-none"
+                className="block text-2xl md:text-3xl font-bold leading-none text-primary"
               >
-                Dentista
+                Bright Smiles
                 <span className="block text-xs font-medium text-gray-400">
                   Dental Clinic
                 </span>

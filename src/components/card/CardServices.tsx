@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import Services from "../../interfaces/Services";
+import { Link } from "react-router-dom";
 
 type Props = {
   data: Services;
@@ -25,12 +26,14 @@ const CardServices: React.FC<Props> = ({ data, delay }) => {
           className="bg-cover bg-no-repeat h-60 w-full" // Estilo para la imagen
           style={{
             backgroundImage: `url(${
-              typeof data.img === "string" ? data.img : "/images/default-image.jpg"
+              typeof data.img === "string"
+                ? data.img
+                : "/images/default-image.jpg"
             })`,
             backgroundPosition: "center",
           }}
         ></div>
-        <div className="p-6 flex-grow">
+        <Link to="/treatments/show" className="p-6 flex-grow">
           {" "}
           {/* Padding y permite que el contenido crezca */}
           <h3 className="text-xl font-semibold mb-4">
@@ -39,7 +42,7 @@ const CardServices: React.FC<Props> = ({ data, delay }) => {
           <p className="text-gray-500 text-custom-16 leading-relaxed">
             {data.content || "No content available."}
           </p>
-        </div>
+        </Link>
       </div>
     </motion.div>
   );

@@ -2,7 +2,6 @@ import React from "react";
 import SocialFooter from "../components/social/SocialFooter";
 import LinkFooter from "../components/link/LinkFooter";
 import CardFooterBlog from "../components/card/CardFooterBlog";
-import SubscribeForm from "../components/form/SubscribreForm";
 
 type Props = {};
 
@@ -91,13 +90,17 @@ const Footer: React.FC<Props> = () => {
             <h2 className="mb-6 text-lg md:text-xl md:mt-6 lg:mt-0 font-semibold">
               Opening Hours
             </h2>
-            <h3 className="text-base flex items-center">
-              <span className="icon-av_timer mr-2"></span>We are open 24/7
-            </h3>
-            <h2 className="mt-10 mb-6 text-lg md:text-xl font-semibold">
-              Subscribe Us!
-            </h2>
-            <SubscribeForm />
+            <div className="text-base">
+              <h3>
+                Lunes - Viernes 9:00 am - 6:00 pm
+              </h3> <hr className="mb-4" />
+              <h3>
+                Sábado 9:00 am - 1:00 pm
+              </h3> <hr className="mb-4" />
+              <h3>
+                Lunes - Domingo - Urgencias 24h
+              </h3> <hr className="mb-4" />
+            </div>
           </div>
         </div>
 

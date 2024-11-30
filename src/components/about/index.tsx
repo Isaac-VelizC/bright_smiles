@@ -12,7 +12,7 @@ const AboutSection: React.FC = () => {
           <div
             className="w-full h-56 md:h-80 lg:h-screen lg:w-5/12 md:p-5 img img-2 mt-5 md:mt-0"
             style={{
-              backgroundImage: "url(/images/about.jpg)",
+              backgroundImage: "url(/imgs/about-2.webp)",
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -58,9 +58,9 @@ const AboutSection: React.FC = () => {
                 />
                 <div className="text pl-4 leading-snug">
                   <h3 className="mb-0 text-2xl text-gray-800">
-                    Dr. Paul Foster
+                  Clínica Dental Go Smile
                   </h3>
-                  <span className="position text-sm">CEO, Founder</span>
+                  <span className="position text-sm">Expertos dentales</span>
                 </div>
               </div>
             </div>
