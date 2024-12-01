@@ -30,13 +30,14 @@ const IntroSection: React.FC = () => {
 
   return (
     <section style={sectionStyle} className="relative bg-no-repeat">
+      <div className=" absolute bg-white opacity-40 inset-0"></div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-wrap">
           <div className="w-full md:w-1/2">
-            <h3 className="text-2xl md:text-3xl leading-normal tracking-wide mb-4 text-gray-700">
+            <h3 className="text-2xl md:text-3xl font-medium leading-normal tracking-wide mb-4 text-gray-800">
               We promised to take care of our patients and we delivered.
             </h3>
-            <p className="text-gray-600 text-custom-16 tracking-normal leading-snug md:leading-normal">
+            <p className="text-gray-700 text-base tracking-normal leading-snug md:leading-normal">
               A small river named Duden flows by their place and supplies it
               with the necessary regelialia. It is a paradisematic country.
             </p>

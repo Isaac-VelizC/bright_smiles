@@ -17,7 +17,7 @@ const Breadcrumbs: React.FC<Props> = ({ title }) => {
     <section
       className="relative hero-wrap hero-wrap-2 py-24 bg-cover bg-no-repeat"
       style={{
-        backgroundImage: "url('/imgs/bg-1.webp')",
+        backgroundImage: "url('/imgs/bg-2.webp')",
         backgroundAttachment: "fixed",
         backgroundPosition: "top center",
       }}

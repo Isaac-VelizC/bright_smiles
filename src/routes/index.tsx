@@ -25,7 +25,7 @@ const AppRoutes: React.FC = () => {
                     <Route path="blog/:id/show/:slug" element={<ShowBlogPage />} />
                     <Route path="contact" element={<Contact />} />
                 </Route>
-                <Route path='404' element={<Error404/>} />
+                <Route path='*' element={<Error404/>} />
             </Routes>
         </Router>
     );

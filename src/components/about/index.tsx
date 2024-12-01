@@ -10,7 +10,7 @@ const AboutSection: React.FC = () => {
         <div className="flex flex-col lg:flex-row items-center mx-0 px-0">
           {/* Imagen de fondo */}
           <div
-            className="w-full h-56 md:h-80 lg:h-screen lg:w-5/12 md:p-5 img img-2 mt-5 md:mt-0"
+            className="w-full h-80 lg:h-screen lg:w-5/12 md:p-5 img img-2 mt-5 md:mt-0"
             style={{
               backgroundImage: "url(/imgs/about-2.webp)",
               backgroundSize: "cover",

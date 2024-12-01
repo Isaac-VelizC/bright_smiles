@@ -24,8 +24,8 @@ const Slide: React.FC<SlideProps> = ({ backgroundImage, title, text, link }) => 
         backgroundPosition: "top center",
       }}
     >
-      <div className="absolute inset-0 bg-porcelain bg-opacity-10"></div>
-      <div className="container mx-auto px-6 relative z-10 text-left flex justify-center lg:justify-end">
+      <div className="absolute inset-0 bg-porcelain bg-opacity-40"></div>
+      <div className="container mx-auto px-6 relative z-10 text-center md:text-left flex justify-center lg:justify-end">
         <motion.div
           className="max-w-xl space-y-6"
           initial={{ opacity: 0, x: 50 }}
@@ -33,11 +33,11 @@ const Slide: React.FC<SlideProps> = ({ backgroundImage, title, text, link }) => 
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h1 className="text-4xl md:text-5xl tracking-wider text-primary">{title}</h1>
+          <h1 className="text-4xl md:text-5xl font-semibold tracking-wider text-primary">{title}</h1>
           <p className="text-lg mb-2">{text}</p>
           <a
             href={link}
-            className="inline-block px-8 py-4 bg-primary text-white text-sm rounded-full hover:bg-secondary transition duration-300 ease-in-out"
+            className="inline-block px-8 py-4 bg-primary text-white text-base rounded-full hover:bg-secondary transition duration-300 ease-in-out"
           >
             View our works
           </a>
