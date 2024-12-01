@@ -9,11 +9,12 @@ type Props = {
 };
 
 const CardServices: React.FC<Props> = ({ data, delay }) => {
+  const w = window.innerWidth;
   return (
     <motion.div
       whileInView={{ opacity: 1, y: 0 }}
       initial={{ opacity: 0, y: 50 }}
-      transition={{ duration: 1, delay }} // Usa el delay pasado como prop
+      transition={{ duration: 1, delay: w >= 748 ? delay : 0 }} // Usa el delay pasado como prop
       viewport={{ once: true, amount: 0.2 }}
       className="w-full md:w-1/3 p-4"
     >

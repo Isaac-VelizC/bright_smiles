@@ -22,7 +22,7 @@ const AboutSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0.5, y: 50 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true }}
             className="relative w-full lg:w-7/12 py-4 md:py-5 lg:pl-12"
           >
             <div className="tracking-wide block relative mb-6">
@@ -54,7 +54,7 @@ const AboutSection: React.FC = () => {
               <div className="founder flex items-center mt-5">
                 <div
                   className="img w-16 h-16 rounded-full bg-cover bg-center"
-                  style={{ backgroundImage: "url(images/doc-1.jpg)" }}
+                  style={{ backgroundImage: "url(imgs/icon.png)" }}
                 />
                 <div className="text pl-4 leading-snug">
                   <h3 className="mb-0 text-2xl text-gray-800">

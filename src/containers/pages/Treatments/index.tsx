@@ -3,6 +3,7 @@ import Breadcrumbs from "../../../components/Breadcrumbs";
 import CardServices from "../../../components/card/CardServices";
 import { useData } from "../../../context/ContextApi";
 import Services from "../../../interfaces/Services";
+import Loading from "../../../components/Loading";
 
 //type Props = {};
 
@@ -10,7 +11,7 @@ const TreatmentsPage: React.FC = () => {
   const { services, loading } = useData();
 
   if (loading || !services) {
-    return <div>Loading</div>
+    return <Loading/>
   }
   return (
     <>

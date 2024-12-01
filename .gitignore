@@ -18,6 +18,7 @@ yarn-error.log*
 
 # Ignorar dependencias de Node.js
 node_modules/
+dist/
 
 # Ignorar archivos generados por Next.js (si aplica)
 .next/

@@ -8,6 +8,7 @@ type PropsPricing = {
 };
 
 const CardPricing: React.FC<PropsPricing> = ({ type, price, delay }) => {
+  const w = window.innerWidth;
   const services = [
     "Diagnostic Services",
     "Professional Consultation",
@@ -19,7 +20,7 @@ const CardPricing: React.FC<PropsPricing> = ({ type, price, delay }) => {
     <motion.div
       whileInView={{ opacity: 1, y: 0 }}
       initial={{ opacity: 0, y: 50 }}
-      transition={{ duration: 1, delay }} // Usa el delay pasado como prop
+      transition={{ duration: 1, delay: w >= 748 ? delay : 0 }} // Usa el delay pasado como prop
       viewport={{ once: true, amount: 0.2 }}
       className="w-full md:w-1/4 p-4 group"
     >

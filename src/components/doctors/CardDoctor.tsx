@@ -15,11 +15,13 @@ const socialIcons = [
 ];
 
 const CardDoctor: React.FC<PropsCardDoctor> = ({ data, delay }) => {
+  const w = window.innerWidth;
+  
   return (
     <motion.div
       whileInView={{ opacity: 1, y: 0 }}
       initial={{ opacity: 0, y: 50 }}
-      transition={{ duration: 1, delay: typeof delay === "number" ? delay : 0 }}
+      transition={{ duration: 1, delay: w >= 768 ? (typeof delay === "number" ? delay : 0) : 0 }}
       viewport={{ once: true, amount: 0.2 }}
       className="w-full sm:w-1/2 lg:w-1/4 p-4 group"
     >

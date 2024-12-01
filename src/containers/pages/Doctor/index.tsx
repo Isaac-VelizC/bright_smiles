@@ -3,12 +3,13 @@ import Breadcrumbs from '../../../components/Breadcrumbs';
 import CardDoctor from '../../../components/doctors/CardDoctor';
 import { useData } from '../../../context/ContextApi';
 import Doctor from '../../../interfaces/Doctor';
+import Loading from '../../../components/Loading';
 
 const DoctorPage: React.FC = () => {
   const { doctors, loading } = useData();
 
   if (loading || !Array.isArray(doctors)) {
-    return <div>Loading...</div>;
+    return <Loading/>;
   }
 
   return (

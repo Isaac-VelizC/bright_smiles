@@ -9,12 +9,13 @@ type PropsService = {
 };
 
 const CardService: React.FC<PropsService> = ({ data, delay }) => {
+  const w = window.innerWidth;
   return (
     <motion.div
       whileInView={{ opacity: 1, y: 0 }}
       initial={{ opacity: 0, y: 50 }}
-      transition={{ duration: 1, delay }} // Usa el delay pasado como prop
-      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 1, delay: w >= 748 ? delay : 0 }} // Usa el delay pasado como prop
+      viewport={{ once: true }}
       className="w-full md:w-1/4 flex flex-col items-center p-4"
     >
       <Link to={`/treatments/${data.id}/show/${data.slug}`} className="text-center p-6">

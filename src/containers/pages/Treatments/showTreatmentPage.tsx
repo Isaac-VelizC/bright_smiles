@@ -7,6 +7,7 @@ import { useData } from "../../../context/ContextApi";
 import Error404 from "../../errors/404";
 import { getServiceById } from "../../../db/request";
 import Services from "../../../interfaces/Services";
+import Loading from "../../../components/Loading";
 
 const ShowTreatmentPage: React.FC = () => {
   const { services } = useData();
@@ -38,7 +39,7 @@ const ShowTreatmentPage: React.FC = () => {
   }, [id]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loading/>;
   }
 
   if (!treatment) {

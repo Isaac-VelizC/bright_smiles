@@ -2,17 +2,21 @@ import React from "react";
 import SocialFooter from "../components/social/SocialFooter";
 import LinkFooter from "../components/link/LinkFooter";
 import CardFooterBlog from "../components/card/CardFooterBlog";
+import { useData } from "../context/ContextApi";
 
 type Props = {};
 
 const Footer: React.FC<Props> = () => {
+  const { blogs } = useData();
   return (
     <footer className="text-sm md:px-20 bg-primary text-gray-200">
       <div className="max-w-screen-xl mx-auto px-6 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 ">
           {/* Column 1 */}
           <div>
-            <h2 className="mb-6 text-lg md:text-xl font-semibold">Dentista Bright Smiles</h2>
+            <h2 className="mb-6 text-lg md:text-xl font-semibold">
+              Dentista Bright Smiles
+            </h2>
             <p className="text-sm md:text-base text-white/80 leading-relaxed">
               Far far away, behind the word mountains, far from the countries
               Vokalia and Consonantia, there live the blind texts.
@@ -46,9 +50,9 @@ const Footer: React.FC<Props> = () => {
             <h2 className="mb-6 text-lg md:text-xl font-semibold">Links</h2>
             <ul className="space-y-3">
               <LinkFooter name="Home" enlace="/" />
-              <LinkFooter name="About" enlace="/about"/>
+              <LinkFooter name="About" enlace="/about" />
               <LinkFooter name="Services" enlace="/treatments" />
-              <LinkFooter name="Contact" enlace="/contact"/>
+              <LinkFooter name="Contact" enlace="/contact" />
             </ul>
           </div>
 
@@ -57,22 +61,9 @@ const Footer: React.FC<Props> = () => {
             <h2 className="mb-6 text-lg md:text-xl font-semibold">
               Recent Blog
             </h2>
-            <CardFooterBlog
-              title="Even the all-powerful Pointing has no control about"
-              img="/images/image_1.jpg"
-              date="Sept. 20, 2019"
-              enlace="#"
-              comments={23}
-              user="Admin"
-            />
-            <CardFooterBlog
-              title="Even the all-powerful Pointing has no control about"
-              img="/images/image_2.jpg"
-              date="Sept. 20, 2019"
-              enlace="#"
-              comments={19}
-              user="Admin"
-            />
+            {blogs.slice(0, 2).map((item, index) => (
+              <CardFooterBlog key={index} data={item} comments={23} />
+            ))}
           </div>
 
           {/* Column 4 */}
@@ -81,15 +72,9 @@ const Footer: React.FC<Props> = () => {
               Opening Hours
             </h2>
             <div className="text-base">
-              <h3>
-                Lunes - Viernes 9:00 am - 6:00 pm
-              </h3> <hr className="mb-4" />
-              <h3>
-                Sábado 9:00 am - 1:00 pm
-              </h3> <hr className="mb-4" />
-              <h3>
-                Lunes - Domingo - Urgencias 24h
-              </h3> <hr className="mb-4" />
+              <h3>Lunes - Viernes 9:00 am - 6:00 pm</h3> <hr className="mb-4" />
+              <h3>Sábado 9:00 am - 1:00 pm</h3> <hr className="mb-4" />
+              <h3>Lunes - Domingo - Urgencias 24h</h3> <hr className="mb-4" />
             </div>
           </div>
         </div>

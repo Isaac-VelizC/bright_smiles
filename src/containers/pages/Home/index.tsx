@@ -9,9 +9,10 @@ import IntroCarousel from "../../../components/carousel/IntroCarousel";
 import CardPricing from "../../../components/card/CardPricing";
 import SectionConsultation from "../../../components/sections/SectionConsultation";
 import SectionTestimonial from "../../../components/sections/SectionTestimonial";
-import blogs from "../../../data/blogs";
 import { useData } from "../../../context/ContextApi";
 import FormConsult from "../../../components/form/FormConsult";
+import Loading from "../../../components/Loading";
+import Blog from "../../../interfaces/Blog";
 
 const pricings = [
   {
@@ -33,10 +34,10 @@ const pricings = [
 ];
 
 const HomePage: React.FC = () => {
-  const { doctors, services, loading } = useData();
+  const { doctors, services, blogs, loading } = useData();
 
   if (loading) {
-    return <div>Loading</div>;
+    return <Loading/>;
   }
 
   return (
@@ -131,14 +132,11 @@ const HomePage: React.FC = () => {
                 paradisematic country."
           />
           <div className="flex flex-wrap justify-center">
-            {blogs.slice(0, 3).map((blog, index) => (
+            {blogs.slice(0, 3).map((blog: Blog, index) => (
               <CardBlog
                 key={index}
-                title={blog.title}
-                content={blog.content}
-                comments={blog.comments}
-                user={blog.user}
-                img={blog.img}
+                comments={7}
+                data={blog}
                 delay={0.1 * index} // Calcula el delay basado en el índice
               />
             ))}

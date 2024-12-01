@@ -14,8 +14,8 @@ const HeadingSection: React.FC<Props> = ({ title, subtitle, content }) => {
         <motion.span
           whileInView={{ opacity: 1, y: 0 }}
           initial={{ opacity: 0, y: 50 }}
-          transition={{ duration: 1 }}
-          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 1, useNativeDriver: true }}
+          viewport={{ once: true }}
           className="text-sm block mb-2 uppercase relative tracking-[2px]"
         >
           {title}
