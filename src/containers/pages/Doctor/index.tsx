@@ -21,7 +21,7 @@ const DoctorPage: React.FC = () => {
               <CardDoctor
                 key={doctor.id}
                 data={doctor}
-                delay={0.2 * index}
+                delay={0.1 * index}
               />
             ))}
           </div>

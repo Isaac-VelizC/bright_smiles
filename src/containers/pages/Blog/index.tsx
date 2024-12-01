@@ -20,7 +20,7 @@ const BlogPage: React.FC = () => {
                 comments={blog.comments}
                 user={blog.user}
                 img={blog.img}
-                delay={0.2 * index} // Calcula el delay basado en el índice
+                delay={0.1 * index} // Calcula el delay basado en el índice
               />
             ))}
           </div>

@@ -7,11 +7,9 @@ import HeadingSection from "../../../components/sections/HeadingSection";
 import CardBlog from "../../../components/card/CardBlog";
 import IntroCarousel from "../../../components/carousel/IntroCarousel";
 import CardPricing from "../../../components/card/CardPricing";
-import InputForm from "../../../components/form/InputForm";
 import SectionConsultation from "../../../components/sections/SectionConsultation";
 import SectionTestimonial from "../../../components/sections/SectionTestimonial";
 import blogs from "../../../data/blogs";
-import { Link } from "react-router-dom";
 import { useData } from "../../../context/ContextApi";
 import FormConsult from "../../../components/form/FormConsult";
 
@@ -33,8 +31,6 @@ const pricings = [
     price: 89.5,
   },
 ];
-
-
 
 const HomePage: React.FC = () => {
   const { doctors, services, loading } = useData();
@@ -67,7 +63,7 @@ const HomePage: React.FC = () => {
               <CardService
                 key={index}
                 data={service}
-                delay={0.2 * index} // Calcula el delay basado en el índice
+                delay={0.1 * index} // Calcula el delay basado en el índice
               />
             ))}
           </div>
@@ -91,7 +87,7 @@ const HomePage: React.FC = () => {
               <CardDoctor
                 key={index}
                 data={doctor}
-                delay={0.2 * index} // Calcula el delay basado en el índice
+                delay={0.1 * index} // Calcula el delay basado en el índice
               />
             ))}
           </div>
@@ -118,7 +114,7 @@ const HomePage: React.FC = () => {
                 key={index}
                 type={price.type}
                 price={price.price}
-                delay={0.2 * index} // Calcula el delay basado en el índice
+                delay={0.1 * index} // Calcula el delay basado en el índice
               />
             ))}
           </div>
@@ -143,7 +139,7 @@ const HomePage: React.FC = () => {
                 comments={blog.comments}
                 user={blog.user}
                 img={blog.img}
-                delay={0.2 * index} // Calcula el delay basado en el índice
+                delay={0.1 * index} // Calcula el delay basado en el índice
               />
             ))}
           </div>

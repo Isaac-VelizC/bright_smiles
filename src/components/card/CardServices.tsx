@@ -33,7 +33,7 @@ const CardServices: React.FC<Props> = ({ data, delay }) => {
             backgroundPosition: "center",
           }}
         ></div>
-        <Link to="/treatments/show" className="p-6 flex-grow">
+        <Link to={`/treatments/${data.id}/show/${data.slug}`} className="p-6 flex-grow">
           {" "}
           {/* Padding y permite que el contenido crezca */}
           <h3 className="text-xl font-semibold mb-4">

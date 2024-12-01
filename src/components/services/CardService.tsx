@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import Services from "../../interfaces/Services";
+import { Link } from "react-router-dom";
 
 type PropsService = {
   data: Services;
@@ -16,7 +17,7 @@ const CardService: React.FC<PropsService> = ({ data, delay }) => {
       viewport={{ once: true, amount: 0.2 }}
       className="w-full md:w-1/4 flex flex-col items-center p-4"
     >
-      <div className="text-center p-6">
+      <Link to={`/treatments/${data.id}/show/${data.slug}`} className="text-center p-6">
         {/* Icono */}
         <div className="flex justify-center items-center border w-16 h-16 rounded-full mx-auto">
           <span className={data.icon + " text-3xl text-primary"}></span>
@@ -28,7 +29,7 @@ const CardService: React.FC<PropsService> = ({ data, delay }) => {
             {data.content}
           </p>
         </div>
-      </div>
+      </Link>
     </motion.div>
   );
 };

@@ -50,16 +50,6 @@ const Footer: React.FC<Props> = () => {
               <LinkFooter name="Services" enlace="/treatments" />
               <LinkFooter name="Contact" enlace="/contact"/>
             </ul>
-            <h2 className="mt-10 mb-6 text-lg md:text-xl font-semibold">
-              Services
-            </h2>
-            <ul className="space-y-3">
-              <LinkFooter name="Neurology" />
-              <LinkFooter name="Dentist" />
-              <LinkFooter name="Ophthalmology" />
-              <LinkFooter name="Cardiology" />
-              <LinkFooter name="Surgery" />
-            </ul>
           </div>
 
           {/* Column 3 */}

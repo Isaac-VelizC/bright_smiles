@@ -4,6 +4,7 @@ interface Services {
     content: string,
     icon: string,
     img: string,
+    slug: string,
 }
 
 export default Services;

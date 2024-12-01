@@ -22,7 +22,7 @@ const TreatmentsPage: React.FC = () => {
               <CardServices
                 key={service.id}
                 data={service}
-                delay={0.2 * index} // Calcula el delay basado en el índice
+                delay={0.1 * index} // Calcula el delay basado en el índice
               />
             ))}
           </div>

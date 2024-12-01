@@ -30,6 +30,7 @@ const Slide: React.FC<SlideProps> = ({ backgroundImage, title, text, link }) => 
           className="max-w-xl space-y-6"
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <h1 className="text-4xl md:text-5xl tracking-wider text-primary">{title}</h1>

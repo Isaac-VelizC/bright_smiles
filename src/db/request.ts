@@ -39,3 +39,14 @@ export const getTestimonials = async () => {
   return data;
 };
 
+// Buscar un servicio por ID
+export const getServiceById = async (id: number) => {
+  const { data, error } = await supabase
+    .from('Services')
+    .select('*')
+    .eq('id', id)
+    .single(); // Devuelve un único resultado
+
+  if (error) throw error;
+  return data;
+};
